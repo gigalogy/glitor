@@ -17,6 +17,6 @@ echo "Glitor Downloaded!"
 mkdir ~/glitor
 tarball="$(find . -name "*.tar.gz")"
 tar -xzf $tarball -C ~/glitor
-cd ~/glitor || exit 0
+cd ~/glitor
 chmod +x start.sh
 sh start.sh
