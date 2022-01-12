@@ -4,6 +4,10 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 echo "Poetry Version"
 poetry --version
+poetry config virtualenvs.create false
+poetry config virtualenvs.in-project true
+poetry config virtualenvs.path venv
+source venv/bin/activate
 echo "Poetry Installed!"
 
 echo "Export Environment Variables..."

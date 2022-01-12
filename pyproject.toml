@@ -5,7 +5,7 @@ description = ""
 authors = ["Md Moin Uddin <moensam@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">= 3.7, <= 3.9"
 fastapi = "^0.71.0"
 docker = "^5.0.3"
 fastapi-utils = "^0.2.1"
