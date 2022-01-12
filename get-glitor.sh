@@ -2,7 +2,8 @@
 
 echo "Export Environment Variables..."
 export APP_ENVIRONMENT=STG
-export SLACK_WEBHOOK_URL=
+# We have to set this env explicitly in row data of ec2
+# export SLACK_WEBHOOK_URL=
 export ALLOWED_HOSTS=ALLOWED_HOSTS=["*"]
 echo "Environment Variables Exported"
 
