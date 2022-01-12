@@ -23,6 +23,6 @@ echo "$newdirname directory is created"
 fi
 tarball="$(find . -name "*.tar.gz")"
 tar -xzf $tarball -C ~/glitor
-cd ~/glitor
+cd $newdirname
 chmod +x start.sh
 sh start.sh
