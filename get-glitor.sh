@@ -14,9 +14,16 @@ curl --silent "https://api.github.com/repos/moinsam/glitor/releases/latest" \
 
 echo "Glitor Downloaded!"
 
-newdirname=~/glitor
+dirname=~/glitor
+if [ -d "$dirname" ]; then
+  echo "Directory already exists" ;
+else
+  `mkdir -p $dirname`;
+  echo "$dirname directory is created"
+fi
+
 tarball="$(find . -name "*.tar.gz")"
-tar -xzf $tarball -C $newdirname
-cd $newdirname
+tar -xzf $tarball -C $dirname
+cd $dirname
 chmod +x start.sh
 sh start.sh
