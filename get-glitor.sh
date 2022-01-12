@@ -4,7 +4,7 @@ echo "Export Environment Variables..."
 export APP_ENVIRONMENT=STG
 # We have to set this env explicitly in row data of ec2
 # export SLACK_WEBHOOK_URL=
-export ALLOWED_HOSTS=ALLOWED_HOSTS=["*"]
+export ALLOWED_HOSTS=["*"]
 echo "Environment Variables Exported"
 
 echo "Glitor Downloading..."
