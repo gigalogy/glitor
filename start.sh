@@ -4,22 +4,15 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 echo "Poetry Version"
 poetry --version
-poetry config virtualenvs.create false
+poetry config virtualenvs.create true
 poetry config virtualenvs.in-project true
-poetry config virtualenvs.path venv
-source venv/bin/activate
+poetry config virtualenvs.path .venv
 echo "Poetry Installed!"
-
-echo "Export Environment Variables..."
-export APP_ENVIRONMENT=STG
-export SLACK_WEBHOOK_URL=
-export ALLOWED_HOSTS=ALLOWED_HOSTS=["*"]
-echo "Environment Variables Exported"
 
 echo "Installing Dependencies..."
 poetry install --no-root
 echo "Dependencies Installed"
 
 echo "Starting service..."
-gunicorn main:app -b 0.0.0.0:10000 -k uvicorn.workers.UvicornWorker --daemon &
+gunicorn glitor.main:app -b 0.0.0.0:10000 -k uvicorn.workers.UvicornWorker --daemon &
 echo "Service Started!"
