@@ -24,6 +24,5 @@ fi
 
 tarball="$(find . -name "*.tar.gz")"
 tar -xzf $tarball -C $dirname
-cd $dirname
-chmod +x start.sh
-sh start.sh
+
+sh $dirname/start.sh
