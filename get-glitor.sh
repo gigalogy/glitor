@@ -8,10 +8,10 @@ export ALLOWED_HOSTS=["*"]
 echo "Environment Variables Exported"
 
 echo "Glitor Downloading..."
-curl --silent "https://api.github.com/repos/moinsam/glitor/releases/latest" \
+curl --silent "https://api.github.com/repos/gigalogy/glitor/releases/latest" \
 | grep '"tag_name":' \
 | sed -E 's/.*"([^"]+)".*/\1/' \
-| xargs -I {} curl -sOL "https://github.com/moinsam/glitor/archive/"{}'.tar.gz'
+| xargs -I {} curl -sOL "https://github.com/gigalogy/glitor/archive/"{}'.tar.gz'
 
 echo "Glitor Downloaded!"
 

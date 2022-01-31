@@ -2,7 +2,7 @@
 name = "glitor"
 version = "0.1.0"
 description = ""
-authors = ["Md Moin Uddin <moensam@gmail.com>"]
+authors = ["Mosleh Uddin <mosleh@gigalogy.com>"]
 
 [tool.poetry.dependencies]
 python = ">= 3.7, <= 3.9"
