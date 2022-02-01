@@ -18,6 +18,8 @@ echo "Glitor Downloaded!"
 tarball="$(find . -name "*.tar.gz")"
 tar -xzf $tarball
 
-cd glitor-*
+mv glitor-* glitor
+
+cd glitor
 
 sh start.sh
