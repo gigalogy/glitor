@@ -3,3 +3,5 @@ venv
 .venv
 .idea
 .DS_Store
+test/
+__pycache__/
