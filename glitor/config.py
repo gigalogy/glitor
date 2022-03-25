@@ -10,6 +10,8 @@ class BaseConfig(BaseSettings):
     env_name: str = os.environ["APP_ENVIRONMENT"]
     allowed_hosts: str = os.environ["ALLOWED_HOSTS"]
     slack_webhook_url: str = os.environ["SLACK_WEBHOOK_URL"]
+    cpu_threshold: int = os.environ["CPU_THRESHOLD"]
+    memory_threshold: int = os.environ["MEMORY_THRESHOLD"]
 
 
 config = BaseConfig()

@@ -112,6 +112,8 @@ def send_message_to_slack(container_name, container_status, cpu_usage, memory_us
     print("Response: " + str(r.status_code) + "," + str(r.reason))
 
 
+exited_containers = set()
+
 @app.on_event("startup")
 @repeat_every(seconds=60, raise_exceptions=True)
 def resource_usage_alert():
@@ -122,10 +124,12 @@ def resource_usage_alert():
         cpu_usage = round(res_usage[0], 2)
         memory_usage = round(res_usage[1], 2)
         total_memory_usage = total_memory_usage + memory_usage
-        if cpu_usage > 90 or total_memory_usage > 75 or container.status != "running":
+        if cpu_usage > config.cpu_threshold or total_memory_usage > config.memory_threshold or (container.status != "running" and container.short_id not in exited_containers):
             send_message_to_slack(
                 container.name,
                 container.status,
                 cpu_usage,
                 round(total_memory_usage, 2),
             )
+        if container.status != "running" and container.short_id not in exited_containers:
+            exited_containers.add(container.short_id)

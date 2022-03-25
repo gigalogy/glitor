@@ -5,6 +5,8 @@ export APP_ENVIRONMENT=STG
 # We have to set this env explicitly in row data of ec2
 export SLACK_WEBHOOK_URL=''
 export ALLOWED_HOSTS=["*"]
+export CPU_THRESHOLD=90
+export MEMORY_THRESHOLD=75
 echo "Environment Variables Exported"
 
 echo "Glitor Downloading..."
