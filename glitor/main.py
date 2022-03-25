@@ -15,7 +15,7 @@ app = FastAPI(
     debug=True,
     title=config.app_name,
     description=config.app_description,
-    version=config.app_version
+    version=config.app_version,
 )
 
 app.add_middleware(
@@ -114,6 +114,7 @@ def send_message_to_slack(container_name, container_status, cpu_usage, memory_us
 
 exited_containers = set()
 
+
 @app.on_event("startup")
 @repeat_every(seconds=60, raise_exceptions=True)
 def resource_usage_alert():
@@ -124,12 +125,22 @@ def resource_usage_alert():
         cpu_usage = round(res_usage[0], 2)
         memory_usage = round(res_usage[1], 2)
         total_memory_usage = total_memory_usage + memory_usage
-        if cpu_usage > config.cpu_threshold or total_memory_usage > config.memory_threshold or (container.status != "running" and container.short_id not in exited_containers):
+        if (
+            cpu_usage > config.cpu_threshold
+            or total_memory_usage > config.memory_threshold
+            or (
+                container.status != "running"
+                and container.short_id not in exited_containers
+            )
+        ):
             send_message_to_slack(
                 container.name,
                 container.status,
                 cpu_usage,
                 round(total_memory_usage, 2),
             )
-        if container.status != "running" and container.short_id not in exited_containers:
+        if (
+            container.status != "running"
+            and container.short_id not in exited_containers
+        ):
             exited_containers.add(container.short_id)
