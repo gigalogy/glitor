@@ -3,6 +3,8 @@
 echo "Exporting Environment Variables..."
 export APP_ENVIRONMENT=STG
 export SLACK_WEBHOOK_URL=
+export CPU_THRESHOLD=
+export MEMORY_THRESHOLD=
 export ALLOWED_HOSTS=["*"]
 echo "Environment Variables Exported"
 
