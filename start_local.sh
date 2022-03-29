@@ -11,5 +11,5 @@ poetry install --no-root
 echo "Dependencies Installed"
 
 echo "Starting service..."
-gunicorn glitor.main:app -b 0.0.0.0:10000 -k uvicorn.workers.UvicornWorker
+gunicorn glitor.main:app -k uvicorn.workers.UvicornWorker
 echo "Service Started!"
